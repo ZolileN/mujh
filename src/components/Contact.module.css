@@ -1,0 +1,162 @@
+.contact {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.contactCard {
+  padding: 2.5rem;
+  background: var(--bg-light);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.iconWrapper {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--primary-green-light), var(--primary-green));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.contactCard:hover .iconWrapper {
+  transform: scale(1.1);
+}
+
+.iconWrapper svg {
+  width: 36px;
+  height: 36px;
+  color: white;
+}
+
+.contactTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.contactLink {
+  display: block;
+  color: var(--primary-green);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: var(--primary-green-dark);
+  text-decoration: underline;
+}
+
+.contactText {
+  color: var(--text-gray);
+  font-size: 1rem;
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+
+.cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg,
+    rgba(45, 95, 63, 0.05) 0%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+  border-radius: 16px;
+}
+
+.ctaText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: var(--primary-green);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.ctaButton:hover {
+  background: var(--primary-green-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cta {
+    padding: 2rem 1.5rem;
+  }
+
+  .ctaText {
+    font-size: 1.2rem;
+  }
+}
