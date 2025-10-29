@@ -43,7 +43,7 @@ export default function Contact() {
             <h3 className={styles.contactTitle}>Head Office — De Aar</h3>
 
             <div className={styles.contactText}>
-              <div>2 McIvor Street</div>
+              <div>7 Voortrekker Street</div>
               <div>De Aar</div>
               <div>7000</div>
             </div>
@@ -53,7 +53,7 @@ export default function Contact() {
         <div className={styles.mapWrapper} aria-hidden={false} style={{ marginTop: '1.25rem' }}>
           <iframe
             title="MU JOBE HOLDINGS Head Office - De Aar"
-            src="https://www.google.com/maps?q=-30.6591,24.0072&z=16&output=embed"
+            src="https://www.google.com/maps?q=7+Voortrekker+St+De+Aar+7000&z=16&output=embed"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             style={{ border: 0, width: '100%', height: 300, borderRadius: 8 }}
