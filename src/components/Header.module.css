@@ -29,14 +29,17 @@
 .logo {
   text-decoration: none;
   transition: transform 0.2s ease;
-  max-width: 120px;
+  max-width: 200px;
   z-index: 1001;
+  display: flex;
+  align-items: center;
 }
 
 .logoImg {
   width: 100%;
   height: auto;
   display: block;
+  transition: all 0.3s ease;
 }
 
 .logoText {
@@ -128,7 +131,7 @@
   }
 
   .logo {
-    max-width: 100px;
+    max-width: 120px;
   }
 
   .mobileMenuBtn {
@@ -163,5 +166,11 @@
 
   .header.scrolled .nav {
     top: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo {
+    max-width: 220px;
   }
 }

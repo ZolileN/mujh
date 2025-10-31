@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
+import logo from '../assets/logo-MUJH60.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,7 +10,9 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.column}>
-            <h3 className={styles.logo}>MU JOBE Holdings</h3>
+            <div className={styles.logoContainer}>
+              <img src={logo} alt="MU JOBE Holdings Logo" className={styles.logoImage} />
+            </div>
             <p className={styles.description}>
               Providing quality and affordable funeral cover to South African families.
             </p>
