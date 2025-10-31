@@ -30,7 +30,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {currentYear} MU JOBE Holdings. All rights reserved.
+            © {currentYear} MU JOBE Holdings. All rights reserved. Built with ❤️ and modern web technologies by <a href='https://mlkcomputer.com'>MLK Computer Consulting</a>
           </p>
           <p className={styles.disclaimer}>
             Licensed Financial Services Provider

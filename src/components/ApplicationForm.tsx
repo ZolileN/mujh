@@ -1,5 +1,4 @@
 import { useState, type FormEvent } from 'react';
-import { supabase } from '../lib/supabase';
 import styles from './ApplicationForm.module.css';
 
 interface FormData {
@@ -15,6 +14,7 @@ interface FormData {
   coverageAmount: string;
   beneficiaryName: string;
   beneficiaryRelation: string;
+  subject: string; // For Web3Forms subject
 }
 
 export default function ApplicationForm() {
@@ -30,7 +30,8 @@ export default function ApplicationForm() {
     postalCode: '',
     coverageAmount: '',
     beneficiaryName: '',
-    beneficiaryRelation: ''
+    beneficiaryRelation: '',
+    subject: 'New Cover Application'
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,46 +50,52 @@ export default function ApplicationForm() {
     setErrorMessage('');
 
     try {
-      const { error } = await supabase
-        .from('applications')
-        .insert([
-          {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            id_number: formData.idNumber,
-            email: formData.email,
-            phone: formData.phone,
-            address: formData.address,
-            city: formData.city,
-            province: formData.province,
-            postal_code: formData.postalCode,
-            coverage_amount: formData.coverageAmount,
-            beneficiary_name: formData.beneficiaryName,
-            beneficiary_relation: formData.beneficiaryRelation,
-            status: 'pending'
-          }
-        ]);
-
-      if (error) throw error;
-
-      setSubmitStatus('success');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        idNumber: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        province: '',
-        postalCode: '',
-        coverageAmount: '',
-        beneficiaryName: '',
-        beneficiaryRelation: ''
+      const formDataToSend = new FormData();
+      
+      // Append all form data
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
       });
+      
+      // Add Web3Forms access key
+      formDataToSend.append('access_key', '86302f33-0259-4c00-a3f8-3dc26c8499d3');
+      
+      // Add any additional parameters
+      formDataToSend.append('from_name', 'MUJH Application Form');
+      formDataToSend.append('replyto', formData.email);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSend
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        // Reset form on successful submission
+        setFormData({
+          firstName: '',
+          lastName: '',
+          idNumber: '',
+          email: '',
+          phone: '',
+          address: '',
+          city: '',
+          province: '',
+          postalCode: '',
+          coverageAmount: '',
+          beneficiaryName: '',
+          beneficiaryRelation: '',
+          subject: 'New Cover Application'
+        });
+      } else {
+        throw new Error(data.message || 'Failed to submit application');
+      }
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'An error occurred');
+      setErrorMessage(error instanceof Error ? error.message : 'An unknown error occurred');
     } finally {
       setIsSubmitting(false);
     }
