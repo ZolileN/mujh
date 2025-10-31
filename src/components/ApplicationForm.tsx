@@ -249,6 +249,7 @@ export default function ApplicationForm() {
                   className={styles.input}
                 >
                   <option value="">Select Coverage</option>
+                  <option value="R10000">R10,000</option>
                   <option value="R20000">R20,000</option>
                   <option value="R30000">R30,000</option>
                   <option value="R50000">R50,000</option>

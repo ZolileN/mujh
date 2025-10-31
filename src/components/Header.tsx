@@ -31,6 +31,16 @@ export default function Header() {
           
         </Link>
 
+        <button 
+          className={styles.mobileMenuBtn} 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
+          <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
+          <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
+        </button>
+
         <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`}>
           <button onClick={() => scrollToSection('home')} className={styles.navLink}>
             Home
@@ -51,16 +61,6 @@ export default function Header() {
             Terms
           </Link>
         </nav>
-
-        <button
-          className={styles.mobileMenuBtn}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className={styles.hamburger}></span>
-          <span className={styles.hamburger}></span>
-          <span className={styles.hamburger}></span>
-        </button>
       </div>
     </header>
   );
