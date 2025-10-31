@@ -60,6 +60,9 @@ export default function Header() {
           <Link to="/terms" className={styles.navLink}>
             Terms
           </Link>
+          <Link to="/funeral-cover" className={styles.navLink}>
+            Cover
+          </Link>
         </nav>
       </div>
     </header>
